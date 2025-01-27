@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart' as intl;
+import 'package:intl/date_symbol_data_local.dart' as dl;
 
 void main() {
+  intl.Intl.defaultLocale = 'en_EN';
+  dl.initializeDateFormatting('en_EN');
   runApp(const MyApp());
 }
 
