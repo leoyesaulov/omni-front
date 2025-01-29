@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:omni_front/theme.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:logger/logger.dart';
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomePage(),
+      theme: AppTheme.purpleTheme,
     );
   }
 }
@@ -42,14 +44,14 @@ class _HomePageState extends State<HomePage> {
     });
 
     try {
-      // Инициализация соединения
+      // Connection initialization
       _ws.connect();
 
 
-      // Отправка сообщения
+      // Message sending
       _ws.send("Hello, Backend!");
 
-      // Ожидание ответа с таймаутом
+      // Waiting for response
       final response = await _ws.getResponse();
 
       setState(() => _response = 'Response: $response');
@@ -77,7 +79,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('WS Client with Error Handling')),
+      appBar: AppBar(title: const Text('Leo\'s showcase project: frontend')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
